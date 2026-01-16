@@ -42,7 +42,7 @@ The key objectives of this PoC are to:
 
 The solution is implemented using a **layered architecture** that ensures separation of concerns and enterprise scalability.
 
-![Solution Architecture](Image/architecture.png)
+![Solution Architecture](./Image/architecture.png)
 
 ### Architecture Layers
 
