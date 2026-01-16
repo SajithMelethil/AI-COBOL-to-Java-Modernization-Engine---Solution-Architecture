@@ -166,3 +166,6 @@ The PoC produces:
 
 This Proof of Concept demonstrates the potential of **Generative AI** to accelerate legacy application modernization.  
 By leveraging **FastAPI**, **Uvicorn**, and external LLM services, the solution provides an enterprise-aligned foundation suitable for further production hardening and large-scale adoption.
+# WORKING
+
+![Solution Architecture](./Image/Working.png)
