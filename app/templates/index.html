@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI COBOL to Java Modernization Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> AI COBOL to Java Modernization Engine</h1>
+            <p class="subtitle">Enterprise Banking Legacy System Translation POC</p>
+            <p>Convert COBOL banking code to modern Java with AI assistance</p>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="editor-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-code"></i> COBOL Input</h2>
+                    <div class="controls">
+                        <button id="clearBtn" class="btn btn-secondary">
+                            <i class="fas fa-broom"></i> Clear All
+                        </button>
+                        <button id="translateBtn" class="btn btn-primary">
+                            <i class="fas fa-code"></i> Translate to Java
+                        </button>
+                    </div>
+                </div>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <h3><i class="fas fa-file-code"></i> COBOL Source Code (.cob)</h3>
+                    </div>
+                    <div style="display: flex;">
+                        <div class="line-count">1</div>
+                        <textarea id="cobolCode" placeholder="Paste your COBOL code here...
+Example:
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+       PROCEDURE DIVISION.
+           DISPLAY 'Hello, World!'.
+           STOP RUN."></textarea>
+                    </div>
+                </div>
+
+                <div class="sample-selector">
+                    <div class="sample-btn" data-sample="loan_interest">
+                        <h4><i class="fas fa-percentage"></i> Loan Interest Calculator</h4>
+                        <p>Amortization calculation with principal, rate, term</p>
+                    </div>
+                    <div class="sample-btn" data-sample="account_validation">
+                        <h4><i class="fas fa-user-check"></i> Account Validator</h4>
+                        <p>Account validation with type checking and balance rules</p>
+                    </div>
+                    <div class="sample-btn" data-sample="transaction_ledger">
+                        <h4><i class="fas fa-book"></i> Transaction Ledger</h4>
+                        <p>Transaction processing with credit/debit handling</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div class="section-header">
+                    <h2><i class="fab fa-java"></i> Java Output</h2>
+                    <div class="controls">
+                        <button id="copyJavaBtn" class="btn btn-success" onclick="copyJavaCode()">
+                            <i class="fas fa-copy"></i> Copy Java
+                        </button>
+                    </div>
+                </div>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <h3><i class="fas fa-file-alt"></i> Generated Java Code (.java)</h3>
+                    </div>
+                    <pre id="javaCode">// Java code will appear here after translation
+// Click "Translate to Java" button</pre>
+                </div>
+
+                <div class="status-bar">
+                    <div class="status-header">
+                        <h3><i class="fas fa-info-circle"></i> Translation Status & Explanation</h3>
+                        <div class="status-indicator">
+                            <div class="status-dot"></div>
+                            <span class="status-text">System Ready</span>
+                        </div>
+                    </div>
+                    <div id="explanation">
+                        <!-- Explanation will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>AI is translating your COBOL code to Java...</p>
+            <p>This may take 15-30 seconds depending on code complexity</p>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+    <script>
+    function copyJavaCode() {
+        const javaCode = document.getElementById('javaCode').textContent;
+        navigator.clipboard.writeText(javaCode).then(() => {
+            const btn = document.getElementById('copyJavaBtn');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            btn.classList.add('btn-success');
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+            }, 2000);
+        });
+    }
+    </script>
+</body>
+</html>
